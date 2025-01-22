@@ -98,11 +98,11 @@ class DhLottery:
 
         # 로또 구매 페이지로 이동
         self.driver.execute_script('javascript:goLottoBuy(2);')
-
+        time.sleep(10)
         # 생성된 구매 페이지로 전환
         WebDriverWait(self.driver, 3).until(lambda driver: len(driver.window_handles) > 1)
         self.driver.switch_to.window(self.driver.window_handles[1])
-
+        time.sleep(10)
         try:
             # 내부 iframe으로 전환
             self.driver.switch_to.frame(self.driver.find_element(By.TAG_NAME, "iframe"))
